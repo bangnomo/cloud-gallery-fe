@@ -34,7 +34,9 @@ const next = ref(null);
 
 const fetchImages = async () => {
   try {
-    const response = await axios.get("http://localhost:3002/api/photos");
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/photos`
+    );
 
     images.value = response.data.results.images;
     if (response.data.results.next_cursor) {
